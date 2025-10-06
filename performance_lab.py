@@ -85,12 +85,12 @@ pass
 
 """
 Time and Space Analysis for problem 3:
-- Best-case:
-- Worst-case:
-- Average-case:
-- Space complexity:
-- Why this approach?
-- Could it be optimized?
+- Best-case: O(n) - single loop through list
+- Worst-case: O(n) - checks numbers in list
+- Average-case: O(1) - accessing the index
+- Space complexity: O(n)
+- Why this approach? this approach allows us to use a single loop to avoid nested loops
+- Could it be optimized? No because it's already linear, fast, and effeicent
 """
 
 
@@ -103,16 +103,31 @@ Time and Space Analysis for problem 3:
 # add_n_items(6) → should print when resizing happens.
 
 def add_n_items(n):
-    # Your code here
-    pass
+    capacity = 2 
+    lst = [None] * capacity
+    size = 0
+
+    for i in range(1, n + 1):
+        if size == capacity:
+            print(f"Resizing: current capacity {capacity} → new capacity {capacity*2}")
+            new_lst = [None] * (capacity * 2)
+            for j in range(size):
+                new_lst[j] = lst[j]
+            lst = new_lst
+            capacity *= 2
+        lst[size] = i
+        size += 1
+add_n_items(6)
+
+pass
 
 """
 Time and Space Analysis for problem 4:
-- When do resizes happen?
-- What is the worst-case for a single append?
-- What is the amortized time per append overall?
-- Space complexity:
-- Why does doubling reduce the cost overall?
+- When do resizes happen? when list is full
+- What is the worst-case for a single append? O(n)
+- What is the amortized time per append overall? O(1) average
+- Space complexity: O(n)
+- Why does doubling reduce the cost overall? Doubling reduces the cost overall by ensuring the number grows slowy to not reach capacity quickly
 """
 
 
@@ -126,15 +141,21 @@ Time and Space Analysis for problem 4:
 # Because: [1, 1+2, 1+2+3, 1+2+3+4]
 
 def running_total(nums):
-    # Your code here
-    pass
+    totals = []
+    current_sum = 0
+    for num in nums:
+        current_sum += num
+        totals.append(current_sum)
+    return totals
+print(running_total([1, 2, 3, 4])) 
+pass
 
 """
 Time and Space Analysis for problem 5:
-- Best-case:
-- Worst-case:
-- Average-case:
-- Space complexity:
-- Why this approach?
-- Could it be optimized?
+- Best-case: O(n) Single loop though whole problem
+- Worst-case: O(n) Same as best case because of single loop
+- Average-case: O(n)
+- Space complexity:O(n)
+- Why this approach? a single loop allows us to run sums and be able to append(add) to the current sum
+- Could it be optimized? We could optimize space for less time but overall this is a great effective method for this problem
 """
