@@ -159,3 +159,4 @@ Time and Space Analysis for problem 5:
 - Why this approach? a single loop allows us to run sums and be able to append(add) to the current sum
 - Could it be optimized? We could optimize space for less time but overall this is a great effective method for this problem
 """
+https://github.com/braswell1106/Assignment5/commits/main/performance_lab.py
