@@ -7,8 +7,21 @@
 # Output: 3
 
 def most_frequent(numbers):
-    # Your code here
+    numbers.sort()
+    max_count = count = 1
+    most = numbers[0]
+    for i in range(1, len(numbers)):
+        if numbers[i] == numbers[i - 1]:
+            count += 1
+        else:
+            count = 1
+        if count > max_count:
+            max_count = count
+            most = numbers[i]
+    return most
     pass
+print(most_frequent([1, 3, 2, 3, 4, 1, 3]))
+
 
 """
 Time and Space Analysis for problem 1:
