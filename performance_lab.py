@@ -21,16 +21,14 @@ def most_frequent(numbers):
     return most
     pass
 print(most_frequent([1, 3, 2, 3, 4, 1, 3]))
-
-
 """
 Time and Space Analysis for problem 1:
-- Best-case:
-- Worst-case:
-- Average-case:
-- Space complexity:
-- Why this approach?
-- Could it be optimized?
+- Best-case: o(n)
+- Worst-case: o(n)
+- Average-case: o(n)
+- Space complexity: Not sure here I tried searching online for help outside of resoures and got o(k) or o(u)
+- Why this approach? Because of how quick this approch is while being able to use dictornary to count the numbers and show what number is most frequent here
+- Could it be optimized? No because this is already optimal and saves time
 """
 
 
@@ -41,18 +39,26 @@ Time and Space Analysis for problem 1:
 # Input: [4, 5, 4, 6, 5, 7]
 # Output: [4, 5, 6, 7]
 
+
 def remove_duplicates(nums):
-    # Your code here
-    pass
+    seen = set()
+    result = []
+    for num in nums:
+        if num not in seen:
+            seen.add(num)
+            result.append(num)
+    return result  
+print(remove_duplicates([4, 5, 4, 6, 5, 7]))
+pass
 
 """
 Time and Space Analysis for problem 2:
-- Best-case:
-- Worst-case:
-- Average-case:
-- Space complexity:
-- Why this approach?
-- Could it be optimized?
+- Best-case: O(n) - we go through each number once(single loop)
+- Worst-case: O(n) - all numbers are added to a set and checked in single loop
+- Average-case: O(1) - set operations are O(1)
+- Space complexity: O(n)
+- Why this approach? This approach was easiest because the information already gave us numbers in set form. Now we just needed to use set to check all numbers and remove the number that was on consistant throughout list created.
+- Could it be optimized? No because it is already in a simple fast form
 """
 
 
@@ -65,8 +71,17 @@ Time and Space Analysis for problem 2:
 # Output: [(1, 4), (2, 3)]
 
 def find_pairs(nums, target):
-    # Your code here
-    pass
+    seen = set()
+    pairs = []
+    for num in nums:
+        complement = target - num
+        if complement in seen:
+            pairs.append((complement, num))
+        seen.add(num)
+    return pairs
+print(find_pairs([1, 2, 3, 4], target=5)) 
+
+pass
 
 """
 Time and Space Analysis for problem 3:
